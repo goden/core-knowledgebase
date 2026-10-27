@@ -57,6 +57,7 @@ A project that is capable to build my own knowledge repository within my own Age
 - VS Code 與 GitHub Copilot Chat
 - 具備 Python 基礎（建議先完成「Python 教學助教」單元 1-9 與 11）
 - 已安裝 Docker Desktop（SQLite 與 Chroma 以外的資料庫皆以 Docker 建置）
+- 教學測試資料位於 [data/database/](data/database/)，欄位說明見 [data/README.md](data/README.md)
 
 ### 如何啟動
 1. 開啟本專案資料夾於 VS Code。
@@ -97,6 +98,7 @@ A project that is capable to build my own knowledge repository within my own Age
 
 ### 常見問題
 - **Docker 範例的密碼可用於正式環境嗎？** 不可以，僅供本機學習；帳密請改用環境變數或 `.env`，且勿提交至版本控制。
+- **範例資料從哪來？** 使用 `data/database/` 的虛構資料（關聯表、商品文件、圖形節點與關係、向量語料）；如需重新產生，執行 `python data/generate_data.py`。
 - **Oracle 或 Milvus 容器啟動很慢？** 首次需下載映像檔且初始化較久，請待容器健康檢查通過後再連線。
 - **可以跳過單元嗎？** 可以，明確告知想學的單元即可，但建議依序學習。
 
@@ -109,6 +111,7 @@ A project that is capable to build my own knowledge repository within my own Age
 - VS Code 與 GitHub Copilot Chat
 - 具備 Python 基礎（建議先完成「Python 教學助教」單元 1-11）
 - 資料儲存單元可銜接「資料庫教學助教」（選修）
+- 離線教學資料位於 [data/crawler/](data/crawler/) 與 [data/tokenization/](data/tokenization/)，欄位說明見 [data/README.md](data/README.md)
 
 ### 如何啟動
 1. 開啟本專案資料夾於 VS Code。
@@ -146,4 +149,57 @@ A project that is capable to build my own knowledge repository within my own Age
 ### 常見問題
 - **可以教 Selenium、Cypress 或 Playwright 嗎？** 不可以，本課程刻意不使用瀏覽器自動化工具；動態網頁改以分析 XHR / JSON API 的方式處理。
 - **可以爬任何網站嗎？** 不可以，請遵守 `robots.txt` 與服務條款，練習以專為爬蟲練習的站台為主；課程不涵蓋繞過驗證碼、登入、封鎖等反爬機制。
+- **沒有網路或不想爬真實站台怎麼練習？** 使用 `data/crawler/` 的離線 HTML 與 API 回應樣本，以及 `data/tokenization/` 的斷詞語料。
+- **可以跳過單元嗎？** 可以，明確告知想學的單元即可，但建議依序學習。
+
+## 資料探勘教學助教使用說明
+
+### 簡介
+承繼「Python 教學助教」的進階課程，帶領學生完成「資料載入 → 清洗 → 轉換 → 探索 → 視覺化 → 關聯分析」的完整資料探勘流程，並深入介紹 NumPy（`ndarray`）、Pandas、Matplotlib 等套件，每個單元皆附完整可執行的範例、練習題與單元考題。
+
+### 前置需求
+- VS Code 與 GitHub Copilot Chat
+- 具備 Python 基礎（建議先完成「Python 教學助教」單元 1-11）
+- 安裝套件：`numpy`、`pandas`、`matplotlib`、`seaborn`、`mlxtend`、`scikit-learn`、`openpyxl`（建議使用 `venv`）
+- 教學測試資料位於 [data/data-mining/](data/data-mining/)，欄位說明見 [data/README.md](data/README.md)
+
+### 如何啟動
+1. 開啟本專案資料夾於 VS Code。
+2. 開啟 Copilot Chat，在 Agent 選單選擇「資料探勘教學助教」。
+3. Agent 定義檔：[.github/agents/data-mining-tutor.agent.md](.github/agents/data-mining-tutor.agent.md)
+
+### 課程大綱
+| 單元 | 類別 | 主題 | 重點內容 |
+|---|---|---|---|
+| 1 | 概觀 | 資料探勘概觀與環境 | KDD / CRISP-DM、任務類型、環境建置、套件總覽 |
+| 2 | 數值運算 | NumPy 基礎 | `ndarray` 建立、`shape` / `dtype`、索引切片、重塑 |
+| 3 | 數值運算 | NumPy 進階 | 向量化、廣播、`axis` 運算、線性代數 |
+| 4 | 載入/清洗/轉換 | Pandas 資料結構 | `Series`、`DataFrame`、`loc` / `iloc`、`describe()` |
+| 5 | 載入/清洗/轉換 | 資料載入 | CSV、Excel、JSON、資料庫、`chunksize` |
+| 6 | 載入/清洗/轉換 | 資料清洗 | 缺值、重複、異常值（IQR、Z-score）、型別轉換 |
+| 7 | 載入/清洗/轉換 | 資料轉換 | 分箱、編碼、標準化、`groupby`、`merge` |
+| 8 | 探索/視覺化 | 探索式資料分析（EDA） | 描述統計、分布、群組摘要、相關係數矩陣 |
+| 9 | 探索/視覺化 | Matplotlib 視覺化 | `Figure` / `Axes`、常見圖表、子圖、中文字型 |
+| 10 | 探索/視覺化 | 進階視覺化 | Seaborn、Pandas 內建繪圖、圖表選擇 |
+| 11 | 關聯分析 | 相關性分析 | Pearson / Spearman、熱圖、卡方檢定概念 |
+| 12 | 關聯分析 | 關聯規則探勘 | 支持度 / 信賴度 / 提升度、Apriori、FP-Growth |
+| 13 | 綜合 | 綜合專案 | 載入 → 清洗 → 轉換 → EDA → 視覺化 → 關聯分析 → 報告 |
+
+### 學習流程
+概念說明 → 套件介紹 → 完整範例 → 練習 → 單元考題 → 公布答案 → 進入下一單元
+
+### 常用指令範例
+- 「我已完成 Python 基礎，從第 1 單元開始」
+- 「用 `sales_raw.csv` 教我資料清洗」
+- 「我想直接學第 12 單元：關聯規則」
+- 「出第 6 單元的考題」
+- 「公布第 6 單元考題答案」
+
+### 自訂與擴充
+編輯 [.github/agents/data-mining-tutor.agent.md](.github/agents/data-mining-tutor.agent.md) 的「課程大綱」段落，即可新增、移除或調整單元。
+
+### 常見問題
+- **範例資料從哪來？** 優先使用 `data/data-mining/` 的虛構資料；如需重新產生，執行 `python data/generate_data.py`。
+- **Matplotlib 中文顯示成方框？** 需設定支援中文的字型，單元 9 會說明做法。
+- **清洗時會修改原始資料嗎？** 不會，課程要求保留原始檔，結果輸出到新變數或新檔案。
 - **可以跳過單元嗎？** 可以，明確告知想學的單元即可，但建議依序學習。
