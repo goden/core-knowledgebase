@@ -284,6 +284,143 @@ def make_reviews(rng):
     return rows
 
 
+def make_housing(rng):
+    """房價資料（回歸）：單價受屋齡（含非線性）、捷運距離、樓層與坪數影響。"""
+    rows = []
+    for i in range(1, 501):
+        area = rng.uniform(10, 60)
+        age = rng.randint(0, 40)
+        distance = int(rng.expovariate(1 / 800)) + 50
+        floor = rng.randint(1, 20)
+        unit_price = (55 - 0.5 * age + 0.012 * (age - 20) ** 2 - 0.008 * min(distance, 3000)
+                      + 0.4 * floor + 0.1 * area + rng.gauss(0, 3))
+        rows.append({
+            "house_id": f"H{i:04d}",
+            "area_ping": round(area, 1),
+            "rooms": max(1, round(area / 12 + rng.gauss(0, 0.6))),
+            "age_years": age,
+            "distance_mrt_m": distance,
+            "floor": floor,
+            "unit_price_wan": round(max(unit_price, 10), 1),
+        })
+    return rows
+
+
+def make_advertising(rng):
+    """廣告投放與銷售額（簡單 / 多元回歸）。"""
+    rows = []
+    for i in range(1, 201):
+        tv, radio, paper = rng.uniform(0, 300), rng.uniform(0, 50), rng.uniform(0, 100)
+        sales = 3 + 0.045 * tv + 0.19 * radio + 0.002 * paper + 0.0001 * tv * radio + rng.gauss(0, 1.5)
+        rows.append({"id": i, "tv": round(tv, 1), "radio": round(radio, 1),
+                     "newspaper": round(paper, 1), "sales": round(sales, 1)})
+    return rows
+
+
+def make_enron_style(rng):
+    """仿安隆案財務與郵件特徵的虛構員工資料（分類，標籤 poi 約 12%）。
+
+    人員皆為虛構代號，並刻意含大量缺值、長尾分布與一列加總異常列 TOTAL。
+    """
+    n, n_poi = 145, 18
+    poi_set = set(rng.sample(range(n), n_poi))
+
+    def money(is_poi, p_missing, non_poi_params, poi_params):
+        if rng.random() < (p_missing[1] if is_poi else p_missing[0]):
+            return ""
+        mu, sigma = poi_params if is_poi else non_poi_params
+        return int(rng.lognormvariate(mu, sigma))
+
+    def total(values):
+        present = [v for v in values if v != ""]
+        return sum(present) if present else ""
+
+    rows = []
+    for idx in range(n):
+        poi = idx in poi_set
+        row = {
+            "salary": money(poi, (0.35, 0.05), (12.5, 0.8), (12.9, 0.5)),
+            "bonus": money(poi, (0.5, 0.05), (13.2, 0.9), (14.3, 0.6)),
+            "long_term_incentive": money(poi, (0.55, 0.2), (12.8, 0.9), (13.6, 0.6)),
+            "expenses": money(poi, (0.3, 0.1), (10.5, 0.9), (10.9, 0.6)),
+            "other": money(poi, (0.4, 0.2), (10.5, 1.5), (12.5, 1.2)),
+            "exercised_stock_options": money(poi, (0.3, 0.1), (13.5, 1.3), (15.5, 1.0)),
+            "restricted_stock": money(poi, (0.25, 0.1), (12.8, 1.2), (14.0, 1.1)),
+        }
+        row["total_payments"] = total([row[k] for k in
+                                      ("salary", "bonus", "long_term_incentive", "expenses", "other")])
+        row["total_stock_value"] = total([row["exercised_stock_options"], row["restricted_stock"]])
+        if rng.random() < (0.1 if poi else 0.4):
+            mail = {k: "" for k in ("to_messages", "from_messages", "from_poi_to_this_person",
+                                    "from_this_person_to_poi", "shared_receipt_with_poi")}
+        else:
+            mail = {
+                "to_messages": int(rng.lognormvariate(6.8, 0.8)),
+                "from_messages": int(rng.lognormvariate(5.0, 1.2)),
+                "from_poi_to_this_person": int(rng.expovariate(1 / (60 if poi else 25))),
+                "from_this_person_to_poi": int(rng.expovariate(1 / (35 if poi else 6))),
+                "shared_receipt_with_poi": int(rng.lognormvariate(7.0 if poi else 6.0, 0.5 if poi else 0.9)),
+            }
+        row.update(mail)
+        row["poi"] = int(poi)
+        rows.append(row)
+
+    rng.shuffle(rows)
+    header = ["employee_id", "salary", "bonus", "long_term_incentive", "expenses", "other",
+              "total_payments", "exercised_stock_options", "restricted_stock", "total_stock_value",
+              "to_messages", "from_messages", "from_poi_to_this_person", "from_this_person_to_poi",
+              "shared_receipt_with_poi", "poi"]
+    for i, row in enumerate(rows, 1):
+        row["employee_id"] = f"EMP{i:03d}"
+    # 加總列為刻意保留的極端異常值，供異常值偵測練習
+    sum_row = {k: sum(r[k] for r in rows if r[k] != "") for k in header[1:-1]}
+    sum_row.update({"employee_id": "TOTAL", "poi": 0})
+    rows.append(sum_row)
+    return header, rows
+
+
+def make_rfm(rng):
+    """顧客 RFM 資料（分群）：由四個潛在族群混合產生，true_segment 僅供驗證。"""
+    segments = [
+        ("忠誠客", 80, (15, 8), (25, 6), (30000, 7000)),
+        ("一般客", 120, (60, 20), (8, 3), (8000, 2500)),
+        ("沉睡客", 70, (200, 40), (2, 1), (2000, 800)),
+        ("高單價偶購客", 30, (90, 30), (3, 1), (45000, 9000)),
+    ]
+    rows = []
+    for name, count, rec, freq, mon in segments:
+        for _ in range(count):
+            rows.append({
+                "recency_days": max(1, int(rng.gauss(*rec))),
+                "frequency": max(1, int(rng.gauss(*freq))),
+                "monetary": max(100, int(rng.gauss(*mon))),
+                "true_segment": name,
+            })
+    rng.shuffle(rows)
+    for i, row in enumerate(rows, 1):
+        row["customer_id"] = f"C{i:04d}"
+    return [{"customer_id": r["customer_id"], "recency_days": r["recency_days"],
+             "frequency": r["frequency"], "monetary": r["monetary"],
+             "true_segment": r["true_segment"]} for r in rows]
+
+
+def make_shapes(rng):
+    """二維非球形資料（兩個半月形加雜訊點），對照 K-Means / 階層式與 DBSCAN。"""
+    rows = []
+    for _ in range(150):
+        t = rng.uniform(0, math.pi)
+        rows.append({"x": round(math.cos(t) + rng.gauss(0, 0.07), 3),
+                     "y": round(math.sin(t) + rng.gauss(0, 0.07), 3), "shape": "moon_a"})
+        t = rng.uniform(0, math.pi)
+        rows.append({"x": round(1 - math.cos(t) + rng.gauss(0, 0.07), 3),
+                     "y": round(0.5 - math.sin(t) + rng.gauss(0, 0.07), 3), "shape": "moon_b"})
+    for _ in range(15):
+        rows.append({"x": round(rng.uniform(-1.5, 2.5), 3),
+                     "y": round(rng.uniform(-1.0, 1.5), 3), "shape": "noise"})
+    rng.shuffle(rows)
+    return rows
+
+
 def main():
     rng = random.Random(SEED)
     customers = make_customers(rng)
@@ -319,6 +456,20 @@ def main():
 
     reviews = make_reviews(rng)
     write_csv(ROOT / "tokenization" / "reviews.csv", list(reviews[0]), reviews)
+
+    # 機器學習資料使用獨立亂數序列，避免影響前面資料集的內容
+    ml_rng = random.Random(SEED + 1)
+    ml = ROOT / "machine-learning"
+    housing = make_housing(ml_rng)
+    write_csv(ml / "housing.csv", list(housing[0]), housing)
+    advertising = make_advertising(ml_rng)
+    write_csv(ml / "advertising.csv", list(advertising[0]), advertising)
+    enron_header, enron_rows = make_enron_style(ml_rng)
+    write_csv(ml / "enron_style_employees.csv", enron_header, enron_rows)
+    rfm = make_rfm(ml_rng)
+    write_csv(ml / "customer_rfm.csv", list(rfm[0]), rfm)
+    shapes = make_shapes(ml_rng)
+    write_csv(ml / "shapes_2d.csv", list(shapes[0]), shapes)
 
     print("資料產生完成：", ROOT)
 

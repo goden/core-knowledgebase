@@ -203,3 +203,59 @@ A project that is capable to build my own knowledge repository within my own Age
 - **Matplotlib 中文顯示成方框？** 需設定支援中文的字型，單元 9 會說明做法。
 - **清洗時會修改原始資料嗎？** 不會，課程要求保留原始檔，結果輸出到新變數或新檔案。
 - **可以跳過單元嗎？** 可以，明確告知想學的單元即可，但建議依序學習。
+
+## 機器學習教學助教使用說明
+
+### 簡介
+承繼「Python 教學助教」與「資料探勘教學助教」的進階課程，系統性教學回歸、分類、分群等機器學習模型，並以仿安隆案的員工資料完成分類實作。每個單元包含概念與直覺、完整範例、練習題與單元考題。
+
+### 前置需求
+- VS Code 與 GitHub Copilot Chat
+- 具備 Python 基礎（「Python 教學助教」單元 1-11），以及 NumPy、Pandas、Matplotlib 與資料清洗轉換（「資料探勘教學助教」單元 2-10）
+- 安裝套件：`scikit-learn`、`numpy`、`pandas`、`matplotlib`、`seaborn`、`scipy`、`joblib`、`jieba`（選用：`imbalanced-learn`、`xgboost`、`lightgbm`）
+- 教學測試資料位於 [data/machine-learning/](data/machine-learning/)，欄位說明見 [data/README.md](data/README.md)
+
+### 如何啟動
+1. 開啟本專案資料夾於 VS Code。
+2. 開啟 Copilot Chat，在 Agent 選單選擇「機器學習教學助教」。
+3. Agent 定義檔：[.github/agents/ml-tutor.agent.md](.github/agents/ml-tutor.agent.md)
+
+### 課程大綱
+| 單元 | 類別 | 主題 | 重點內容 | 教學資料 |
+|---|---|---|---|---|
+| 1 | 基礎 | 機器學習基礎介紹 | 學習類型、流程、`scikit-learn` 介面、過擬合、偏差與變異 | 內建資料集 |
+| 2 | 基礎 | 資料準備與模型評估 | 切分、交叉驗證、`Pipeline`、回歸與分類指標、類別不平衡 | 內建資料集 |
+| 3 | 回歸/分類 | 回歸分析 | 線性回歸、多項式、Ridge / Lasso、殘差分析 | `advertising.csv`、`housing.csv` |
+| 4 | 回歸/分類 | 邏輯斯迴歸 | Sigmoid、門檻、勝算比、正則化 | 內建資料集 |
+| 5 | 回歸/分類 | 決策樹模型 | Gini / 熵、剪枝、特徵重要性、視覺化 | 內建資料集 |
+| 6 | 回歸/分類 | 支持向量機（SVM） | 最大邊界、核函數、`C` / `gamma`、調參 | 內建資料集 |
+| 7 | 回歸/分類 | 樸素貝氏 | 貝氏定理、三種變體、中文文字分類 | `tokenization/reviews.csv` |
+| 8 | 回歸/分類 | 類神經網路 | MLP、激活函數、反向傳播概念、早停 | 內建資料集 |
+| 9 | 回歸/分類 | 集成式學習 | 隨機森林、Boosting、Voting、Stacking | 內建資料集 |
+| 10 | 案例實作 | 安隆案預測模型 | 異常值、缺值、特徵工程、不平衡、多模型比較與解讀 | `enron_style_employees.csv` |
+| 11 | 分群 | 分群基礎 | 距離度量、K-Means、肘部法、輪廓係數 | `customer_rfm.csv` |
+| 12 | 分群 | 階層式分群（凝聚式） | 連結方式、樹狀圖判讀 | `customer_rfm.csv` |
+| 13 | 分群 | 分裂式分群 | Bisecting K-Means、DIANA 概念 | `customer_rfm.csv` |
+| 14 | 分群 | 密度式分群 | DBSCAN、`eps` / `min_samples`、離群點 | `shapes_2d.csv` |
+| 15 | 分群 | 分群案例實作 | 顧客 RFM 分群與四種方法比較 | `customer_rfm.csv`、`shapes_2d.csv` |
+| 16 | 綜合 | 綜合專案 | 端到端流程、模型儲存、報告與選型 | 自選 |
+
+### 學習流程
+概念與直覺 → 套件介紹 → 完整範例 → 練習 → 單元考題 → 公布答案 → 進入下一單元
+
+### 常用指令範例
+- 「我已具備資料探勘基礎，從第 1 單元開始」
+- 「用 `advertising.csv` 教我多元線性回歸」
+- 「我想直接做第 10 單元：安隆案預測」
+- 「出第 9 單元的考題」
+- 「公布第 9 單元考題答案」
+
+### 自訂與擴充
+編輯 [.github/agents/ml-tutor.agent.md](.github/agents/ml-tutor.agent.md) 的「課程大綱」段落，即可新增、移除或調整單元。
+
+### 常見問題
+- **安隆案用的是真實資料嗎？** 不是，使用的是由 `python data/generate_data.py` 產生的虛構員工資料，不含真實人名；真實安隆資料集屬公開資料，可作為選用延伸，使用前請確認授權。
+- **為什麼不能只看準確率？** 安隆資料的 POI 僅約 12%，只預測「非 POI」也有高準確率，課程會搭配 Precision、Recall、F1 與 ROC-AUC 說明。
+- **有深度學習嗎？** 單元 8 以 `scikit-learn` 的 MLP 為主，並簡介 PyTorch / TensorFlow 的定位，不深入框架實作。
+- **邏輯斯迴歸為何排在決策樹之前？** 它延續回歸分析的概念，作為分類的銜接；若偏好依原順序，可告知助教調整。
+- **可以跳過單元嗎？** 可以，明確告知想學的單元即可，但建議依序學習。

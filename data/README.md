@@ -44,13 +44,26 @@ python data/generate_data.py
 | `custom_dict.txt` | jieba 自訂詞典（格式：詞 詞頻 詞性） |
 | `stopwords.txt` | 停用詞表 |
 
+### machine-learning/（機器學習教學助教）
+| 檔案 | 說明 | 練習重點 |
+|---|---|---|
+| `advertising.csv` | 廣告投放（`tv`、`radio`、`newspaper`）與銷售額，200 筆 | 簡單 / 多元線性回歸、交互項 |
+| `housing.csv` | 房價 500 筆（坪數、房數、屋齡、捷運距離、樓層、單價） | 多項式回歸（屋齡非線性）、Ridge / Lasso、殘差分析 |
+| `enron_style_employees.csv` | 仿安隆案的虛構員工資料 145 筆，加一列 `TOTAL`；標籤 `poi`（約 12%） | 分類實作：大量缺值、長尾分布、`TOTAL` 加總列異常值、類別不平衡、郵件比例特徵工程 |
+| `customer_rfm.csv` | 顧客 RFM 300 筆（`recency_days`、`frequency`、`monetary`） | 分群實作；`true_segment` 僅供事後驗證，分群時需排除 |
+| `shapes_2d.csv` | 二維點：兩個半月形加雜訊點 | 對照 K-Means、階層式與 DBSCAN 的適用情境、離群點 |
+
+文字分類（樸素貝氏）可重用 `tokenization/reviews.csv`，以 `rating` 轉換為正負面標籤。
+
+> 安隆資料為「仿」資料：員工以虛構代號表示，數值皆由程式產生，不含真實人名。真實的安隆財務與郵件資料集屬公開資料，可作為選用延伸，但含真實人名，請確認授權並避免以模型結果指控個人。
+
 ## 公開資料集（選用，需自行下載）
 
 使用前請確認各資料集的授權與引用規範；本專案不內建這些資料。
 
 | 來源 | 適用 | 說明 |
 |---|---|---|
-| `scikit-learn` 內建資料集 | 資料探勘 | `load_iris`、`load_wine`、`load_diabetes` 隨套件附帶，免下載 |
+| `scikit-learn` 內建資料集 | 資料探勘、機器學習 | `load_iris`、`load_wine`、`load_diabetes`、`load_breast_cancer` 隨套件附帶，免下載 |
 | `seaborn` 範例資料集 | 資料探勘 | `sns.load_dataset("tips")` 等，首次使用需連網下載 |
 | 政府資料開放平臺（data.gov.tw） | 資料探勘、爬蟲 | 台灣政府開放資料，請依各資料集的開放授權條款使用 |
 | UCI Machine Learning Repository | 資料探勘 | 如 Online Retail 交易資料可用於關聯規則；請依各資料集授權引用 |
