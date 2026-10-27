@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>爬蟲練習頁面（離線樣本）</title>
+</head>
+<body>
+  <header>
+    <h1 id="site-title">資料科學週報</h1>
+    <nav class="menu">
+      <a href="/" class="active">首頁</a>
+      <a href="/articles">文章</a>
+      <a href="/about">關於</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="articles">
+      <article class="post" data-id="101">
+        <h2 class="title"><a href="/articles/101">Python 爬蟲入門</a></h2>
+        <p class="meta">作者：<span class="author">小明</span>｜日期：<time datetime="2025-03-01">2025-03-01</time></p>
+        <p class="summary">從 HTTP 請求開始，了解爬蟲如何運作。</p>
+        <ul class="tags"><li>python</li><li>爬蟲</li></ul>
+      </article>
+
+      <article class="post" data-id="102">
+        <h2 class="title"><a href="/articles/102">用 Pandas 整理資料</a></h2>
+        <p class="meta">作者：<span class="author">小華</span>｜日期：<time datetime="2025-03-08">2025-03-08</time></p>
+        <p class="summary">清洗、轉換與彙總，一次搞懂。</p>
+        <ul class="tags"><li>pandas</li><li>資料分析</li></ul>
+      </article>
+
+      <article class="post" data-id="103">
+        <h2 class="title"><a href="/articles/103">向量資料庫初探</a></h2>
+        <p class="meta">作者：<span class="author">小美</span>｜日期：<time datetime="2025-03-15">2025-03-15</time></p>
+        <!-- 刻意缺少摘要，供缺漏欄位處理練習 -->
+        <ul class="tags"><li>資料庫</li><li>AI</li></ul>
+      </article>
+    </section>
+
+    <section id="price-table">
+      <h2>課程價目表</h2>
+      <table class="prices">
+        <thead>
+          <tr><th>課程</th><th>時數</th><th>價格</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Python 基礎</td><td>12</td><td>NT$ 1,200</td></tr>
+          <tr><td>資料庫實務</td><td>16</td><td>NT$ 1,800</td></tr>
+          <tr><td>資料探勘</td><td>20</td><td>NT$ 2,400</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="embedded-data">
+      <script type="application/ld+json">
+        {"@type": "Organization", "name": "資料科學週報", "email": "contact@example.com", "founded": 2020}
+      </script>
+    </section>
+
+    <nav class="pagination">
+      <a href="?page=1" class="prev disabled">上一頁</a>
+      <span class="current">1</span>
+      <a href="?page=2" class="next">下一頁</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 範例網站（虛構內容，僅供教學）</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,278 @@
+{
+  "page": 2,
+  "per_page": 10,
+  "total": 20,
+  "next_page": null,
+  "data": [
+    {
+      "id": 11,
+      "title": "範例文章 11",
+      "author": {
+        "id": 5,
+        "name": "小傑"
+      },
+      "tags": [
+        "python",
+        "資料庫",
+        "AI"
+      ],
+      "stats": {
+        "views": 2136,
+        "likes": 79
+      },
+      "published_at": "2025-05-09T11:00:00",
+      "summary": "這是第 11 篇文章的摘要。",
+      "comments": []
+    },
+    {
+      "id": 12,
+      "title": "範例文章 12",
+      "author": {
+        "id": 5,
+        "name": "小傑"
+      },
+      "tags": [
+        "爬蟲"
+      ],
+      "stats": {
+        "views": 3150,
+        "likes": 9
+      },
+      "published_at": "2025-02-22T09:00:00",
+      "summary": null,
+      "comments": [
+        {
+          "user": "user28",
+          "text": "請問來源？"
+        },
+        {
+          "user": "user24",
+          "text": "學到了"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "範例文章 13",
+      "author": {
+        "id": 4,
+        "name": "小傑"
+      },
+      "tags": [
+        "爬蟲",
+        "python"
+      ],
+      "stats": {
+        "views": 2943,
+        "likes": 33
+      },
+      "published_at": "2025-05-31T17:00:00",
+      "summary": null,
+      "comments": [
+        {
+          "user": "user14",
+          "text": "讚"
+        },
+        {
+          "user": "user33",
+          "text": "學到了"
+        },
+        {
+          "user": "user8",
+          "text": "學到了"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "範例文章 14",
+      "author": {
+        "id": 4,
+        "name": "小美"
+      },
+      "tags": [
+        "資料分析",
+        "AI",
+        "爬蟲"
+      ],
+      "stats": {
+        "views": 3951,
+        "likes": 31
+      },
+      "published_at": "2025-03-15T21:00:00",
+      "summary": null,
+      "comments": [
+        {
+          "user": "user20",
+          "text": "讚"
+        },
+        {
+          "user": "user34",
+          "text": "讚"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "範例文章 15",
+      "author": {
+        "id": 2,
+        "name": "小傑"
+      },
+      "tags": [
+        "python",
+        "資料庫"
+      ],
+      "stats": {
+        "views": 4132,
+        "likes": 166
+      },
+      "published_at": "2025-08-29T20:00:00",
+      "summary": "這是第 15 篇文章的摘要。",
+      "comments": [
+        {
+          "user": "user25",
+          "text": "讚"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "範例文章 16",
+      "author": {
+        "id": 2,
+        "name": "小雅"
+      },
+      "tags": [
+        "資料庫"
+      ],
+      "stats": {
+        "views": 2136,
+        "likes": 201
+      },
+      "published_at": "2025-08-22T21:00:00",
+      "summary": "這是第 16 篇文章的摘要。",
+      "comments": [
+        {
+          "user": "user29",
+          "text": "讚"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "範例文章 17",
+      "author": {
+        "id": 5,
+        "name": "小雅"
+      },
+      "tags": [
+        "python",
+        "資料分析"
+      ],
+      "stats": {
+        "views": 3422,
+        "likes": 219
+      },
+      "published_at": "2025-03-27T13:00:00",
+      "summary": null,
+      "comments": [
+        {
+          "user": "user42",
+          "text": "學到了"
+        },
+        {
+          "user": "user44",
+          "text": "讚"
+        },
+        {
+          "user": "user10",
+          "text": "學到了"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "範例文章 18",
+      "author": {
+        "id": 1,
+        "name": "小華"
+      },
+      "tags": [
+        "爬蟲",
+        "AI"
+      ],
+      "stats": {
+        "views": 3294,
+        "likes": 243
+      },
+      "published_at": "2025-05-23T12:00:00",
+      "summary": "這是第 18 篇文章的摘要。",
+      "comments": [
+        {
+          "user": "user39",
+          "text": "讚"
+        },
+        {
+          "user": "user14",
+          "text": "請問來源？"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "範例文章 19",
+      "author": {
+        "id": 4,
+        "name": "小雅"
+      },
+      "tags": [
+        "AI",
+        "python"
+      ],
+      "stats": {
+        "views": 3339,
+        "likes": 15
+      },
+      "published_at": "2025-09-30T03:00:00",
+      "summary": null,
+      "comments": [
+        {
+          "user": "user38",
+          "text": "請問來源？"
+        },
+        {
+          "user": "user15",
+          "text": "讚"
+        },
+        {
+          "user": "user4",
+          "text": "請問來源？"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "範例文章 20",
+      "author": {
+        "id": 3,
+        "name": "小美"
+      },
+      "tags": [
+        "資料庫"
+      ],
+      "stats": {
+        "views": 59,
+        "likes": 177
+      },
+      "published_at": "2025-09-27T00:00:00",
+      "summary": null,
+      "comments": [
+        {
+          "user": "user31",
+          "text": "讚"
+        }
+      ]
+    }
+  ]
+}

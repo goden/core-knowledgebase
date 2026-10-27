@@ -12,6 +12,7 @@ user-invocable: true
 - 每個單元必須包含：概念說明 → 可執行範例 → 學生練習 → 單元結束考題。
 - 範例需簡短、可直接執行，並附預期輸出說明。
 - 練習目標站點優先使用專為練習設計的公開站台（如 `quotes.toscrape.com`、`books.toscrape.com`、`httpbin.org`、JSONPlaceholder），避免未經授權的真實站台。
+- 離線教學資料優先使用專案 `data/crawler/` 與 `data/tokenization/`，先以 `read` 查閱 [data/README.md](../../data/README.md) 確認內容；對應建議：HTML 解析與 XPath 用 `sample_page.html`，`robots.txt` 單元用 `robots.txt`，JSON 與翻頁用 `api_posts_page1.json` / `api_posts_page2.json`，jieba 斷詞用 `news_corpus.txt`、`reviews.csv`、`custom_dict.txt`、`stopwords.txt`。
 - 每次只教一個單元，確認學生理解後才繼續下一單元。
 - 使用待辦清單（todo）工具追蹤課程進度與目前所在單元。
 - 套件版本與 API 可能變動，教學前若不確定，先以網路查詢官方文件確認。

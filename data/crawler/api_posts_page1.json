@@ -1,0 +1,231 @@
+{
+  "page": 1,
+  "per_page": 10,
+  "total": 20,
+  "next_page": 2,
+  "data": [
+    {
+      "id": 1,
+      "title": "範例文章 1",
+      "author": {
+        "id": 1,
+        "name": "小傑"
+      },
+      "tags": [
+        "雲端",
+        "資料庫"
+      ],
+      "stats": {
+        "views": 553,
+        "likes": 223
+      },
+      "published_at": "2025-07-31T12:00:00",
+      "summary": "這是第 1 篇文章的摘要。",
+      "comments": [
+        {
+          "user": "user37",
+          "text": "學到了"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "範例文章 2",
+      "author": {
+        "id": 2,
+        "name": "小明"
+      },
+      "tags": [
+        "python",
+        "雲端"
+      ],
+      "stats": {
+        "views": 3340,
+        "likes": 152
+      },
+      "published_at": "2025-10-09T01:00:00",
+      "summary": null,
+      "comments": []
+    },
+    {
+      "id": 3,
+      "title": "範例文章 3",
+      "author": {
+        "id": 1,
+        "name": "小傑"
+      },
+      "tags": [
+        "爬蟲"
+      ],
+      "stats": {
+        "views": 1628,
+        "likes": 186
+      },
+      "published_at": "2025-01-16T20:00:00",
+      "summary": "這是第 3 篇文章的摘要。",
+      "comments": [
+        {
+          "user": "user11",
+          "text": "學到了"
+        },
+        {
+          "user": "user14",
+          "text": "請問來源？"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "範例文章 4",
+      "author": {
+        "id": 1,
+        "name": "小雅"
+      },
+      "tags": [
+        "爬蟲",
+        "AI",
+        "雲端"
+      ],
+      "stats": {
+        "views": 2373,
+        "likes": 277
+      },
+      "published_at": "2025-10-19T22:00:00",
+      "summary": null,
+      "comments": []
+    },
+    {
+      "id": 5,
+      "title": "範例文章 5",
+      "author": {
+        "id": 2,
+        "name": "小明"
+      },
+      "tags": [
+        "資料庫"
+      ],
+      "stats": {
+        "views": 887,
+        "likes": 217
+      },
+      "published_at": "2025-07-25T00:00:00",
+      "summary": "這是第 5 篇文章的摘要。",
+      "comments": []
+    },
+    {
+      "id": 6,
+      "title": "範例文章 6",
+      "author": {
+        "id": 1,
+        "name": "小美"
+      },
+      "tags": [
+        "python"
+      ],
+      "stats": {
+        "views": 1217,
+        "likes": 51
+      },
+      "published_at": "2025-05-06T17:00:00",
+      "summary": "這是第 6 篇文章的摘要。",
+      "comments": [
+        {
+          "user": "user31",
+          "text": "請問來源？"
+        },
+        {
+          "user": "user24",
+          "text": "請問來源？"
+        },
+        {
+          "user": "user36",
+          "text": "學到了"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "範例文章 7",
+      "author": {
+        "id": 3,
+        "name": "小傑"
+      },
+      "tags": [
+        "爬蟲",
+        "雲端",
+        "資料庫"
+      ],
+      "stats": {
+        "views": 1916,
+        "likes": 158
+      },
+      "published_at": "2025-07-07T17:00:00",
+      "summary": null,
+      "comments": []
+    },
+    {
+      "id": 8,
+      "title": "範例文章 8",
+      "author": {
+        "id": 3,
+        "name": "小明"
+      },
+      "tags": [
+        "資料庫"
+      ],
+      "stats": {
+        "views": 4095,
+        "likes": 215
+      },
+      "published_at": "2025-03-30T14:00:00",
+      "summary": "這是第 8 篇文章的摘要。",
+      "comments": [
+        {
+          "user": "user32",
+          "text": "請問來源？"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "範例文章 9",
+      "author": {
+        "id": 5,
+        "name": "小傑"
+      },
+      "tags": [
+        "資料庫"
+      ],
+      "stats": {
+        "views": 3880,
+        "likes": 126
+      },
+      "published_at": "2025-07-08T08:00:00",
+      "summary": "這是第 9 篇文章的摘要。",
+      "comments": []
+    },
+    {
+      "id": 10,
+      "title": "範例文章 10",
+      "author": {
+        "id": 2,
+        "name": "小雅"
+      },
+      "tags": [
+        "資料分析"
+      ],
+      "stats": {
+        "views": 4046,
+        "likes": 168
+      },
+      "published_at": "2025-10-03T12:00:00",
+      "summary": null,
+      "comments": [
+        {
+          "user": "user38",
+          "text": "學到了"
+        }
+      ]
+    }
+  ]
+}

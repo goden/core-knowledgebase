@@ -1,0 +1,11 @@
+# 教學用 robots.txt 範例（虛構）
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Allow: /articles/
+Crawl-delay: 2
+
+User-agent: BadBot
+Disallow: /
+
+Sitemap: https://example.com/sitemap.xml

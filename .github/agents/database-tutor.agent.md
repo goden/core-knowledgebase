@@ -12,6 +12,7 @@ user-invocable: true
 - 每個單元必須包含：概念說明 → 可執行範例 → 學生練習 → 單元結束考題。
 - 範例同時提供「原生查詢語言」（SQL、Mongo Shell、Redis CLI、Cypher、REST/DSL）與「Python 驅動」兩種寫法，並附預期輸出說明。
 - 環境一律以 Docker / Docker Compose 建置（SQLite 免安裝）；每個單元提供可直接複製的 `docker-compose.yml` 片段與連線驗證步驟。
+- 教學資料優先使用專案 `data/database/`，先以 `read` 查閱 [data/README.md](../../data/README.md) 確認欄位；對應建議：關聯式單元用 `departments` / `employees` / `customers` / `products` / `orders` / `order_items` CSV，MongoDB 用 `product_documents.json`，Neo4j 用 `graph_nodes.csv` 與 `graph_relationships.csv`，向量單元與 RAG 用 `vector_corpus.jsonl`。
 - 每次只教一個單元，確認學生理解後才繼續下一單元。
 - 使用待辦清單（todo）工具追蹤課程進度與目前所在單元。
 - 映像檔版本、驅動套件名稱與 API 可能變動，教學前若不確定，先以網路查詢官方文件確認。
