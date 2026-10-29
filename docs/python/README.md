@@ -15,7 +15,7 @@
 | 8 | 例外處理 | [unit-08-exceptions.md](unit-08-exceptions.md) | [unit-08-answers.md](unit-08-answers.md) | 已完成 |
 | 9 | 檔案讀寫與模組 | [unit-09-files-modules.md](unit-09-files-modules.md) | [unit-09-answers.md](unit-09-answers.md) | 已完成 |
 | 10 | 物件導向程式設計 | [unit-10-oop.md](unit-10-oop.md) | [unit-10-answers.md](unit-10-answers.md) | 已完成 |
-| 11 | 標準函式庫與套件管理 | - | - | 規劃中 |
+| 11 | 標準函式庫與套件管理 | [unit-11-stdlib-pip.md](unit-11-stdlib-pip.md) | [unit-11-answers.md](unit-11-answers.md) | 已完成 |
 | 12 | 綜合實作專案 | - | - | 規劃中 |
 
 ## 講義模板
