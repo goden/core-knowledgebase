@@ -14,7 +14,7 @@ A project that is capable to build my own knowledge repository within my own Age
 1. 開啟本專案資料夾於 VS Code。
 2. 開啟 Copilot Chat，在 Agent 選單選擇「Python 教學助教」。
 3. Agent 定義檔：[.github/agents/python-tutor.agent.md](.github/agents/python-tutor.agent.md)
-4. 講義目錄與進度：[docs/python/README.md](docs/python/README.md)（目前已完成單元 1-8）
+4. 講義目錄與進度：[docs/python/README.md](docs/python/README.md)（目前已完成單元 1-9）
 
 ### 課程大綱
 | 單元 | 主題 | 重點內容 |
