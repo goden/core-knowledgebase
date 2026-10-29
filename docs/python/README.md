@@ -9,7 +9,7 @@
 | 2 | 運算子與條件判斷 | [unit-02-operators-conditions.md](unit-02-operators-conditions.md) | [unit-02-answers.md](unit-02-answers.md) | 已完成 |
 | 3 | 迴圈與迭代 | [unit-03-loops.md](unit-03-loops.md) | [unit-03-answers.md](unit-03-answers.md) | 已完成 |
 | 4 | 容器型別 | [unit-04-containers.md](unit-04-containers.md) | [unit-04-answers.md](unit-04-answers.md) | 已完成 |
-| 5 | 函式與作用域 | - | - | 規劃中 |
+| 5 | 函式與作用域 | [unit-05-functions.md](unit-05-functions.md) | [unit-05-answers.md](unit-05-answers.md) | 已完成 |
 | 6 | 進階函式 | - | - | 規劃中 |
 | 7 | 字串格式與正規表達式 | - | - | 規劃中 |
 | 8 | 例外處理 | - | - | 規劃中 |
