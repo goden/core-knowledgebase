@@ -6,8 +6,8 @@
 | 單元 | 主題 | 講義 | 答案 | 狀態 |
 |---|---|---|---|---|
 | 1 | Python 基礎入門 | [unit-01-basics.md](unit-01-basics.md) | [unit-01-answers.md](unit-01-answers.md) | 已完成 |
-| 2 | 運算子與條件判斷 | - | - | 規劃中 |
-| 3 | 迴圈與迭代 | - | - | 規劃中 |
+| 2 | 運算子與條件判斷 | [unit-02-operators-conditions.md](unit-02-operators-conditions.md) | [unit-02-answers.md](unit-02-answers.md) | 已完成 |
+| 3 | 迴圈與迭代 | [unit-03-loops.md](unit-03-loops.md) | [unit-03-answers.md](unit-03-answers.md) | 已完成 |
 | 4 | 容器型別 | - | - | 規劃中 |
 | 5 | 函式與作用域 | - | - | 規劃中 |
 | 6 | 進階函式 | - | - | 規劃中 |
