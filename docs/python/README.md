@@ -12,7 +12,7 @@
 | 5 | 函式與作用域 | [unit-05-functions.md](unit-05-functions.md) | [unit-05-answers.md](unit-05-answers.md) | 已完成 |
 | 6 | 進階函式 | [unit-06-advanced-functions.md](unit-06-advanced-functions.md) | [unit-06-answers.md](unit-06-answers.md) | 已完成 |
 | 7 | 字串格式與正規表達式 | [unit-07-strings-regex.md](unit-07-strings-regex.md) | [unit-07-answers.md](unit-07-answers.md) | 已完成 |
-| 8 | 例外處理 | - | - | 規劃中 |
+| 8 | 例外處理 | [unit-08-exceptions.md](unit-08-exceptions.md) | [unit-08-answers.md](unit-08-answers.md) | 已完成 |
 | 9 | 檔案讀寫與模組 | - | - | 規劃中 |
 | 10 | 物件導向程式設計 | - | - | 規劃中 |
 | 11 | 標準函式庫與套件管理 | - | - | 規劃中 |
