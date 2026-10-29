@@ -16,7 +16,7 @@
 | 9 | 檔案讀寫與模組 | [unit-09-files-modules.md](unit-09-files-modules.md) | [unit-09-answers.md](unit-09-answers.md) | 已完成 |
 | 10 | 物件導向程式設計 | [unit-10-oop.md](unit-10-oop.md) | [unit-10-answers.md](unit-10-answers.md) | 已完成 |
 | 11 | 標準函式庫與套件管理 | [unit-11-stdlib-pip.md](unit-11-stdlib-pip.md) | [unit-11-answers.md](unit-11-answers.md) | 已完成 |
-| 12 | 綜合實作專案 | - | - | 規劃中 |
+| 12 | 綜合實作專案 | [unit-12-project.md](unit-12-project.md) | [unit-12-answers.md](unit-12-answers.md) | 已完成 |
 
 ## 講義模板
 每個單元包含：學習目標 → 概念說明 → 範例程式 → 常見錯誤 → 課堂練習 → 單元考題 → 重點整理；答案與參考解答獨立成 `unit-XX-answers.md`。
